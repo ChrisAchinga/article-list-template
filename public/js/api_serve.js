@@ -36,7 +36,7 @@ function filterTable() {
 
       // Loop through collection-item lis
       for(let i = 0;i < tr.length;i++){
-        let td = tr[i].getElementsByTagName('td')[0];
+        let td = tr[i].getElementsByTagName('td')[1];
         // If matched
         if(td.innerHTML.toUpperCase().indexOf(filterValue) > -1){
           tr[i].style.display = '';

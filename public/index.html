@@ -16,32 +16,19 @@
     <h3>Undergraduate Timetable</h3>
     <small>REST API</small>
   </header>
-
   <div class="container">
     <h3>Search | REST API</h3>
     <form action="#" method="get" class="form-inline">
       <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" name="subject" id="subject" />
-      </div>
-      <div class="form-group">
-        <label for="lecturer">Lecturer</label>
-        <input type="text" name="lecturer" id="lecturer" />
-      </div>
-      <div class="form-group">
-        <label for="time">Time</label>
-        <input type="text" name="time" id="time" />
-      </div>
-      <div class="form-group">
-        <label for="room">Room</label>
-        <input type="number" name="room" id="room" />
+        <label for="subject">Search: Time Table</label>
+        <input type="search" id="myInput" placeholder="Search by time, subject, class or campus"  />
       </div>
       <button type="submit" class="search-btn">Search</button>
     </form>
   </div>
   <br>
   <div class="container" id="timetable">
-    <table style="width: 100%">
+    <table style="width: 100%" id="myTable" >
       <thead>
         <tr>
           <th>Time</th>

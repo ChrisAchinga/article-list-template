@@ -17,3 +17,23 @@ The server runs on **Port 300**; in the browser go to http://localhost:3000/ to 
 ## Tweaks
 
 The API is currenty serving only 50 results to save time during development. To work with all the data, go to **line 8** of `./public/js/api_serve.js` and change the 50 to `data.length` .
+
+## Running The Project
+
+Install dependencies:
+
+```shell
+npm install
+```
+
+Run development server
+
+```shell
+npm run dev
+```
+
+Run server
+
+```shell
+npm start
+```

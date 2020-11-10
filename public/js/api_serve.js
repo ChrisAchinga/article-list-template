@@ -3,21 +3,18 @@ const display = document.getElementById("data");
 fetch("http://localhost:3000/api/timetable")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data)
-    data.forEach(function (timetable) {
-        let output = "<h2>Time Table</h2>";
-        output += `
-            <table>
-                <tr>
-                    <td>${timetable.subject}</td>
-                    <td>${timetable.subject.lessonDetails.startTime} to ${timetable.subject.lessonDetails.endTime}</td>
-                    <td>${timetable.subject.lessonDetails.room}</td>
-                    <td>${timetable.lecturer}</td>
-                </tr>
-            </table>
-        `
-    })
-    display.innerHTML = output;
+    // console.log(data)
+    let table = document.getElementById("my-table");
+    for (var i = 0; i < 50; i++) {
+      var row = `<tr>
+                      <td>${data[i].course_info[0].start_time}  ${data[i].course_info[0].end_time}</td>
+                      <td>${data[i].className}</td>
+                      <td>${data[i].subject}</td>
+                      <td>${data[i].course_info[0].campus}</td>
+                      <td>${data[i].catalog_description}</td>
+                </tr>`
+      table.innerHTML += row;
+    }
   })
   .catch(function (error) {
     console.log(error);

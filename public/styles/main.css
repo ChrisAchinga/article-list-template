@@ -98,3 +98,20 @@ button:hover {
 button.search-btn {
     margin-top: 40px;
 }
+
+table,
+th,
+td {
+    border: 1px solid var(--grey);
+    border-collapse: collapse;
+    padding: 6px 12px;
+    min-width: 100px;
+}
+
+thead {
+    background-color: var(--light-grey);
+}
+
+div#timetable {
+    overflow-x: scroll;
+}

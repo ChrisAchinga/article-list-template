@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Styling Sheets -->
-    <link rel="stylesheet" href="styles/main.css" />
-    <title>Timetable Search - Western Online</title>
-  </head>
 
-  <body>
-    <header>
-      <h1>Western</h1>
-      <h3>Undergraduate Timetable</h3>
-      <small>REST API</small>
-    </header>
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Styling Sheets -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <title>Timetable Search - Western Online</title>
+</head>
 
-    <div class="container">
-      <h3>Search | REST API</h3>
-      <form action="#" method="get" class="form-inline">
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" name="subject" id="subject" />
-        </div>
-        <div class="form-group">
-          <label for="lecturer">Lecturer</label>
-          <input type="text" name="lecturer" id="lecturer" />
-        </div>
-        <div class="form-group">
-          <label for="time">Time</label>
-          <input type="text" name="time" id="time" />
-        </div>
-        <div class="form-group">
-          <label for="room">Room</label>
-          <input type="number" name="room" id="room" />
-        </div>
-        <button type="submit" class="search-btn">Search</button>
-      </form>
-    </div>
+<body>
+  <header>
+    <h1>Western</h1>
+    <h3>Undergraduate Timetable</h3>
+    <small>REST API</small>
+  </header>
 
-    <div class="data-container">
-      <h1>Time Table</h1>
-      <div id="data"></div>
-    </div>
+  <div class="container">
+    <h3>Search | REST API</h3>
+    <form action="#" method="get" class="form-inline">
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" />
+      </div>
+      <div class="form-group">
+        <label for="lecturer">Lecturer</label>
+        <input type="text" name="lecturer" id="lecturer" />
+      </div>
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input type="text" name="time" id="time" />
+      </div>
+      <div class="form-group">
+        <label for="room">Room</label>
+        <input type="number" name="room" id="room" />
+      </div>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </div>
+  <br>
+  <div class="container" id="timetable">
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Subject</th>
+          <th>Class</th>
+          <th>Campus</th>
+          <th>Catalog Description</th>
+        </tr>
+      </thead>
+      <tbody id="my-table"></tbody>
+    </table>
+  </div>
 
-    <script src="js/api_serve.js"></script>
-  </body>
+  <script src="js/api_serve.js"></script>
+</body>
+
 </html>

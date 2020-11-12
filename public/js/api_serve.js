@@ -57,6 +57,18 @@ fetch("http://127.0.0.1:3000/api/timetable")
       filtered_data = filtered_data.filter(en => en.course_info[0].end_time == end.value);
       end_dis.innerHTML = end.value;
       console.log(filtered_data);
+
+      let table = document.getElementById("my-table");
+      for (var i = 0; i < 50; i++) {
+        var row = `<tr class="table-row">
+                        <td id="time">${filtered_data[i].course_info[0].start_time}  ${filtered_data[i].course_info[0].end_time}</td>
+                        <td id="class">${filtered_data[i].className}</td>
+                        <td id="subject">${filtered_data[i].subject}</td>
+                        <td id="info">${filtered_data[i].course_info[0].campus}</td>
+                        <td id="catalog">${filtered_data[i].catalog_description}</td>
+                  </tr>`;
+        table.innerHTML += row;
+      }
     }
 
   }).catch(function (error) {

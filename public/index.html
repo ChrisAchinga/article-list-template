@@ -16,31 +16,107 @@
     <h3>Undergraduate Timetable</h3>
     <small>REST API</small>
   </header>
+
   <div class="container">
-    <h3>Search | REST API</h3>
-    <form action="#" method="get" class="form-inline">
+    <form action="" method="get">
+
       <div class="form-group">
-        <label for="subject">Search: Time Table</label>
-        <input type="search" id="myInput" placeholder="Search by time, subject, class or campus"  />
+        <label for="subject-dropdown">Subject</label>
+        <select name="subject" id="subject-dropdown"></select>
       </div>
-      <button type="submit" class="search-btn">Search</button>
+
+      <!-- <div class="form-group">
+        <label for="mon">Mon</label>
+        <input type="checkbox" name="monday" id="mon" value="M">
+        <label for="tue">Tue</label>
+        <input type="checkbox" name="tuesday" id="tue" value="Tu">
+        <label for="wed">Wed</label>
+        <input type="checkbox" name="wednesday" id="wed" value="W">
+        <label for="thur">Thur</label>
+        <input type="checkbox" name="thursday" id="thur" value="Th">
+        <label for="fri">Fri</label>
+        <input type="checkbox" name="friday" id="fri" value="F">
+      </div> -->
+
+      <div class="form-group">
+        <label for="campus">Campus</label>
+        <select name="campus" id="campus">
+          <option value="Any" selected>Any</option>
+          <option value="Main">Main</option>
+          <option value="Huron">Huron</option>
+          <option value="Brescia">Brescia</option>
+          <option value="kings">Kings</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="start_time">Starting Time</label>
+        <select name="start_time" id="start_time">
+          <option value="" SELECTED>All</option>
+          <option value="8:00 AM">8:00 AM</option>
+          <option value="8:30 AM">8:30 AM</option>
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="9:30 AM">9:30 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="10:30 AM">10:30 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="11:30 AM">11:30 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="12:30 PM">12:30 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="1:30 PM">1:30 PM</option>
+          <option value="2:30 PM">2:00 PM</option>
+          <option value="2:30 PM">2:30 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="3:30 PM">3:30 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="4:30 PM">4:30 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="5:30 PM">5:30 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="6:30 PM">6:30 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="end_time">Ending Time</label>
+        <select name="end_time" id="end_time">
+          <option value="" SELECTED>All</option>
+          <option value="8:00 AM">8:00 AM</option>
+          <option value="8:30 AM">8:30 AM</option>
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="9:30 AM">9:30 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="10:30 AM">10:30 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="11:30 AM">11:30 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="12:30 PM">12:30 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="1:30 PM">1:30 PM</option>
+          <option value="2:30 PM">2:00 PM</option>
+          <option value="2:30 PM">2:30 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="3:30 PM">3:30 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="4:30 PM">4:30 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="5:30 PM">5:30 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="6:30 PM">6:30 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+        </select>
+      </div>
     </form>
   </div>
-  <br>
-  <div class="container" id="timetable">
-    <table style="width: 100%" id="myTable" >
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Subject</th>
-          <th>Class</th>
-          <th>Campus</th>
-          <th>Catalog Description</th>
-        </tr>
-      </thead>
-      <tbody id="my-table"></tbody>
-    </table>
-  </div>
+
+  <button type="submit" class="search-btn" id="search-btn">Search</button>
+
+  <p id="subject_dis"></p>
+  <p id="campus_dis"></p>
+  <p id="start_dis"></p>
+  <p id="end_dis"></p>
 
   <script src="js/api_serve.js"></script>
 </body>

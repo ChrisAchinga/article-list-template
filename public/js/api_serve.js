@@ -1,47 +1,76 @@
 // const display = document.getElementById("data");
 
-fetch("http://localhost:3000/api/timetable")
+fetch("http://127.0.0.1:3000/api/timetable")
   .then((response) => response.json())
   .then((data) => {
-    // console.log(data)
-    let table = document.getElementById("my-table");
-    for (var i = 0; i < 50; i++) {
-      var row = `<tr class="table-row">
-                      <td id="time">${data[i].course_info[0].start_time}  ${data[i].course_info[0].end_time}</td>
-                      <td id="class">${data[i].className}</td>
-                      <td id="subject">${data[i].subject}</td>
-                      <td id="info">${data[i].course_info[0].campus}</td>
-                      <td id="catalog">${data[i].catalog_description}</td>
-                </tr>`;
-      table.innerHTML += row;
+    // Populate Subject Dropdown
+    let dropdown = document.getElementById('subject-dropdown');
+    dropdown.length = 0;
+
+    let default_option = document.createElement('option');
+    default_option.text = 'All Subjects';
+    default_option.value = null;
+
+    dropdown.add(default_option);
+    dropdown.selectedIndex = 0;
+
+    for (let i = 0; i < data.length; i++) {
+      let option = document.createElement('option');
+      option.text = data[i].subject;
+      option.value = data[i].subject;
+      dropdown.add(option);
     }
-  })
-  .catch(function (error) {
+
+    // Fetch User Input
+    var subject = document.getElementById('subject-dropdown');
+    var campus = document.getElementById('campus');
+    var start = document.getElementById('start_time');
+    var end = document.getElementById('end_time');
+    var subject_dis = document.getElementById('subject_dis');
+    var campus_dis = document.getElementById('campus_dis');
+    var start_dis = document.getElementById('start_dis');
+    var end_dis = document.getElementById('end_dis');
+
+    // Filter by Subject
+    subject.onchange = function () {
+      filtered_data = data.filter(subj => subj.subject == subject.value);
+      subject_dis.innerHTML = subject.value;
+      console.log(filtered_data);
+    }
+
+    // Filter by Campus
+    campus.onchange = function () {
+      filtered_data = filtered_data.filter(camp => camp.course_info[0].campus == campus.value);
+      campus_dis.innerHTML = campus.value;
+      console.log(filtered_data);
+    }
+
+    // Filter by Start Time
+    start.onchange = function () {
+      filtered_data = filtered_data.filter(sta => sta.course_info[0].start_time == start.value);
+      start_dis.innerHTML = start.value;
+      console.log(filtered_data);
+    }
+
+    // Filter by End Time
+    end.onchange = function () {
+      filtered_data = filtered_data.filter(en => en.course_info[0].end_time == end.value);
+      end_dis.innerHTML = end.value;
+      console.log(filtered_data);
+
+      let table = document.getElementById("my-table");
+      for (var i = 0; i < 50; i++) {
+        var row = `<tr class="table-row">
+                        <td id="time">${filtered_data[i].course_info[0].start_time}  ${filtered_data[i].course_info[0].end_time}</td>
+                        <td id="class">${filtered_data[i].className}</td>
+                        <td id="subject">${filtered_data[i].subject}</td>
+                        <td id="info">${filtered_data[i].course_info[0].campus}</td>
+                        <td id="catalog">${filtered_data[i].catalog_description}</td>
+                  </tr>`;
+        table.innerHTML += row;
+      }
+    }
+
+  }).catch(function (error) {
     console.log(error);
   });
-
-let filterInput = document.getElementById("myInput");
-
-filterInput.addEventListener("keyup", filterTable);
-
-function filterTable() {
-  // console.log(2)
-  // input value
-  let filterValue = document.getElementById("myInput").value.toUpperCase();
-  // console.log(filterValue);
-      // Get the table
-      let table = document.getElementById('my-table');
-      // Get table rows
-      let tr = table.querySelectorAll('tr.table-row');
-
-      // Loop through collection-item lis
-      for(let i = 0;i < tr.length;i++){
-        let td = tr[i].getElementsByTagName('td')[1];
-        // If matched
-        if(td.innerHTML.toUpperCase().indexOf(filterValue) > -1){
-          tr[i].style.display = '';
-        } else {
-          tr[i].style.display = 'none';
-        }
-      }
-}

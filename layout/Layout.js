@@ -1,12 +1,16 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
 
-const Layout = ({ title, keywords, description, children }) => {
+const Layout = ({ title, keywords, description, children, pageURL }) => {
   return (
     <div>
       <Head>
         <meta name='keywords' content={keywords} />
         <meta name='description' content={description} />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        <meta property='og:url' content={pageURL} />
+        <meta property='og:type' content='website' />
         <title>{title}</title>
       </Head>
       <Header />
@@ -19,6 +23,6 @@ export default Layout
 
 Layout.defaultProps = {
   title: 'The DevSpace Blog',
-  keywords: 'programming, javascript, tutorials',
-  description: 'A programmers website to read',
+  keywords: 'Aviation, Airbus, Boeing, Airlines, Airports, Air Travel',
+  description: 'Aviation Blog Website, with articles on Airlines and Aircraft types, and commercial air travel',
 }

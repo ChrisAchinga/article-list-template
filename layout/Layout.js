@@ -22,7 +22,7 @@ const Layout = ({ title, keywords, description, children, pageURL }) => {
 export default Layout
 
 Layout.defaultProps = {
-  title: 'The DevSpace Blog',
+  title: 'AirSpace | Aviation Blog',
   keywords: 'Aviation, Airbus, Boeing, Airlines, Airports, Air Travel',
   description: 'Aviation Blog Website, with articles on Airlines and Aircraft types, and commercial air travel',
 }

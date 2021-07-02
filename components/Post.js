@@ -13,7 +13,7 @@ export default function Post({ post }) {
         className='mb-4 rounded'
       />
 
-<div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center'>
         <span className='font-light text-gray-600'>
           {post.frontmatter.date}
         </span>

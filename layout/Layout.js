@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '@/components/Header'
+import Search from '@/components/Search'
 
 const Layout = ({ title, keywords, description, children, pageURL }) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ title, keywords, description, children, pageURL }) => {
         <title>{title}</title>
       </Head>
       <Header />
+      <Search />
       <main className='container mx-auto my-7'>{children}</main>
     </div>
   )

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import Layout from '@/layouts/Layout'
+import Layout from '@/components/Layout'
 import Post from '@/components/Post'
 import Pagination from '@/components/Pagination'
 import CategoryList from '@/components/CategoryList'
@@ -10,7 +10,7 @@ import { getPosts } from '@/lib/posts'
 export default function BlogPage({ posts, numPages, currentPage, categories }) {
   return (
     <Layout>
-      <div className='flex justify-between'>
+      <div className='flex justify-between flex-col md:flex-row'>
         <div className='w-3/4 mr-10'>
           <h1 className='text-5xl border-b-4 p-5 font-bold'>Blog</h1>
 

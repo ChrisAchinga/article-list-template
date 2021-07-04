@@ -1,11 +1,12 @@
-import Layout from '@/layouts/Layout'
 import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
+import Layout from '@/components/Layout'
 import Post from '@/components/Post'
 import CategoryList from '@/components/CategoryList'
 import matter from 'gray-matter'
 import { getPosts } from '@/lib/posts'
+
 export default function CategoryBlogPage({ posts, categoryName, categories }) {
   return (
     <Layout>

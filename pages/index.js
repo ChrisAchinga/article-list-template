@@ -1,14 +1,9 @@
-// import fs from 'fs'
-// import path from 'path'
 import Link from 'next/link'
-// import matter from 'gray-matter'
-import Layout from '@/layouts/Layout'
+import Layout from '@/components/Layout'
 import Post from '@/components/Post'
-// import { sortByDate } from '../utils'
 import { getPosts } from '@/lib/posts'
 
-export default function Home({ posts }) {
-  // console.log(posts)
+export default function HomePage({ posts }) {
   return (
     <Layout>
       <h1 className='text-5xl border-b-4 p-5 font-bold'>Latest Posts</h1>
@@ -28,7 +23,6 @@ export default function Home({ posts }) {
   )
 }
 
-// get data from /post folder
 export async function getStaticProps() {
   return {
     props: {
